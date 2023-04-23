@@ -1,0 +1,42 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.button {
+    border: 1px black dotted;
+    padding: 8px 18px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 3px;
+    background-color: lightgray;
+    color: black;
+    font-weight: bold;
+}
+
+.table-border-solid {
+    border: 2px black solid;
+    font-weight: bold;
+    background-color: darkgrey;
+}
+
+.table-border-dotted {
+    border: 1px black dotted;
+    padding: 10px;
+}

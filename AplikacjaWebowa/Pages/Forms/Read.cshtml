@@ -1,0 +1,65 @@
+﻿@page
+@model Projekt2.Pages.Forms.ReadModel
+@{
+    ViewData["Title"] = "Read";
+}
+<table width="100%">
+    <tr>
+        <td class="table-border-solid" width="15%">
+            <label asp-for="TablePatterns.Nazwa" style="font-size:large"></label>
+        </td>
+        <td class="table-border-dotted">
+            <label asp-for="TablePatterns.Nazwa">@Model.TablePatterns.Nazwa</label>
+        </td>
+    </tr>
+    <tr>
+        <td class="table-border-solid" width="15%">
+            <label asp-for="TablePatterns.Stroj" style="font-size:large"></label>
+        </td>
+        <td class="table-border-dotted">
+            <label asp-for="TablePatterns.Stroj">@Model.TablePatterns.Stroj</label>
+        </td>
+    </tr>
+    <tr>
+        <td class="table-border-solid" width="15%">
+            <label asp-for="TablePatterns.Podgrupa" style="font-size:large"></label>
+        </td>
+        <td class="table-border-dotted">
+            <label asp-for="TablePatterns.Podgrupa">@Model.TablePatterns.Podgrupa</label>
+        </td>
+    </tr>
+    <tr>
+        <td class="table-border-solid" width="15%">
+            <label asp-for="TablePatterns.Skala" style="font-size:large"></label>
+        </td>
+        <td class="table-border-dotted">
+            <label asp-for="TablePatterns.Skala">@Model.TablePatterns.Skala</label>
+        </td>
+    </tr>
+    <tr>
+        <td class="table-border-solid" width="15%">
+            <label asp-for="TablePatterns.Opis" style="font-size:large"></label>
+        </td>
+        <td class="table-border-dotted">
+            <textarea asp-for="TablePatterns.Opis" cols="100" rows="5" readonly="readonly">@Model.TablePatterns.Opis</textarea>
+        </td>
+    </tr>
+    <tr>
+        <td class="table-border-solid" width="15%">
+            <label asp-for="TablePatterns.Zdjecie" style="font-size:large"></label>
+        </td>
+        <td class="table-border-dotted">
+            @if (Model.TablePatterns.Zdjecie != null)
+            {
+                <img src="data:image/jpg; base64,@(Convert.ToBase64String(Model.fileByte))" width="750"/>
+            }
+        </td>
+    </tr>
+    <tr>
+        <td width="15%">
+        </td>
+        <td style="text-align:right">
+            <a asp-page="/Forms/View" class="button">Powrót</a>
+        </td>
+    </tr>
+</table>

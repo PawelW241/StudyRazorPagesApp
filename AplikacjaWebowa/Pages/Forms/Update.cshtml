@@ -1,0 +1,75 @@
+﻿@page
+@model Projekt2.Pages.Forms.UpdateModel
+@{
+    ViewData["Title"] = "Update";
+}
+<form method="post" enctype="multipart/form-data">
+    <table width="100%">
+        <tr>
+            <td class="table-border-solid" width="15%">
+                <label asp-for="TablePatterns.Nazwa" style="font-size:large"></label>
+            </td>
+            <td class="table-border-dotted">
+                <input asp-for="TablePatterns.Nazwa" />
+            </td>
+        </tr>
+        <tr>
+            <td class="table-border-solid" width="15%">
+                <label asp-for="TablePatterns.Stroj" style="font-size:large"></label>
+            </td>
+            <td class="table-border-dotted">
+                <input asp-for="TablePatterns.Stroj" />
+            </td>
+        </tr>
+        <tr>
+            <td class="table-border-solid" width="15%">
+                <label asp-for="TablePatterns.Podgrupa" style="font-size:large"></label>
+            </td>
+            <td class="table-border-dotted">
+                <input asp-for="TablePatterns.Podgrupa" />
+            </td>
+        </tr>
+        <tr>
+            <td class="table-border-solid" width="15%">
+                <label asp-for="TablePatterns.Skala" style="font-size:large"></label>
+            </td>
+            <td class="table-border-dotted">
+                <input asp-for="TablePatterns.Skala" />
+            </td>
+        </tr>
+        <tr>
+            <td class="table-border-solid" width="15%">
+                <label asp-for="TablePatterns.Opis" style="font-size:large"></label>
+            </td>
+            <td class="table-border-dotted">
+                <textarea asp-for="TablePatterns.Opis" cols="100" rows="5"></textarea>>
+            </td>
+        </tr>
+        <tr>
+            <td class="table-border-solid" width="15%">
+            </td>
+            <td class="table-border-dotted">
+                @if (Model.TablePatterns.Zdjecie != null)
+                {
+                    <img src="data:image/jpg; base64, @(Convert.ToBase64String(Model.Filebyte))" width="750">
+                }
+            </td>
+        </tr>
+        <tr>
+            <td class="table-border-solid" width="15%">
+                <label asp-for="TablePatterns.Zdjecie"></label>
+            </td>
+            <td class="table-border-dotted">
+                <input type="file" asp-for="formFile" />
+            </td>
+        </tr>
+        <tr>
+            <td width="15%">
+            </td>
+            <td style="text-align:right">
+                <button type="submit" class="button">Zapisz</button>
+                <a asp-page="/Forms/View" class="button">Powrót</a>
+            </td>
+        </tr>
+    </table>
+</form>

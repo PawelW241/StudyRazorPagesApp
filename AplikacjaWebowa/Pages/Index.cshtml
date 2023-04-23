@@ -1,0 +1,13 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<br/>
+<h2 style="text-align:center">Katalog Instrumentów Dętych</h2>
+@if (User.Identity.IsAuthenticated)
+{<h3 style="text-align:center">Wejdź w 'Przeglądaj katalog' aby zobaczyć zawartość katalogu</h3>}
+else
+{<h5 style="text-align:center">Zawartość dostępna tylko dla zalogowanych użytkowników</h5>}
+

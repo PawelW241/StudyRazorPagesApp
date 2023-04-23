@@ -1,0 +1,69 @@
+﻿@page
+@model Projekt2.Pages.Forms.CreateModel
+@{
+    ViewData["Title"] = "Create";
+}
+<br />
+<h3> Utwórz nowy wpis</h3>
+<br />
+
+<form method="post" enctype="multipart/form-data">
+    <table width="100%">
+        <tr>
+            <td class="table-border-solid" width="15%">
+                <label asp-for="TablePatterns.Nazwa"></label>
+            </td>
+            <td class="table-border-dotted">
+                <input asp-for="TablePatterns.Nazwa" />
+            </td>
+        </tr>
+        <tr>
+            <td class="table-border-solid" width="15%">
+                <label asp-for="TablePatterns.Stroj"></label>
+            </td>
+            <td class="table-border-dotted">
+                <input asp-for="TablePatterns.Stroj" />
+            </td>
+        </tr>
+        <tr>
+            <td class="table-border-solid" width="15%">
+                <label asp-for="TablePatterns.Podgrupa"></label>
+            </td>
+            <td class="table-border-dotted">
+                <input asp-for="TablePatterns.Podgrupa" />
+            </td>
+        </tr>
+        <tr>
+            <td class="table-border-solid" width="15%">
+                <label asp-for="TablePatterns.Skala"></label>
+            </td>
+            <td class="table-border-dotted">
+                <input asp-for="TablePatterns.Skala" />
+            </td>
+        </tr>
+        <tr>
+            <td class="table-border-solid" width="15%">
+                <label asp-for="TablePatterns.Opis"></label>
+            </td>
+            <td class="table-border-dotted">
+                <textarea asp-for="TablePatterns.Opis" cols="100" rows="5"></textarea>>
+            </td>
+        </tr>
+        <tr>
+            <td class="table-border-solid" width="15%">
+                <label asp-for="TablePatterns.Zdjecie"></label>
+            </td>
+            <td class="table-border-dotted">
+                <input type="file" asp-for="formFile" />
+            </td>
+        </tr>
+        <tr>
+            <td width="15%">
+            </td>
+            <td style="text-align:right">
+                <button type="submit" class="button">Zapisz</button>
+                <a asp-page="/Forms/View" class="button">Powrót</a>
+            </td>
+        </tr>
+    </table>
+</form>

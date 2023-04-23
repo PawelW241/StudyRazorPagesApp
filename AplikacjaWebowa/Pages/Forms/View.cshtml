@@ -1,0 +1,71 @@
+﻿@page
+@model Projekt2.Pages.Forms.ViewModel
+@{
+    ViewData["Title"] = "View";
+}
+
+<br>
+<table width="100%">
+    <tr>
+        <td>
+            <h3>Lista instrumentów</h3>
+        </td>
+    </tr>
+</table>
+<br />
+
+<form method="post">
+    @if (Model.TablePatterns.Count() > 0)
+    {
+        <table width="100%">
+            <tr style="font-size: 22px; background-color: darkgrey; border: 2px solid">
+                <th>
+                    <label asp-for="TablePatterns.FirstOrDefault().Nazwa"></label>
+                </th>
+                <th>
+                    <label asp-for="TablePatterns.FirstOrDefault().Stroj"></label>
+                </th>
+                <th>
+                </th>
+            </tr>
+            @foreach (var item in Model.TablePatterns)
+            {
+                <tr height="50px" style="font-size: 18px; border: 2px solid;">
+                    <td>
+                        @item.Nazwa
+                    </td>
+                    <td>
+                        @item.Stroj
+                    </td>
+                    <td align="right">
+                        <a asp-page="/Forms/Read" asp-route-id="@item.Id" class="button">Otwórz</a>
+                       @if (User.HasClaim("IsAdmin", "Yes"))
+                       {
+                           <a asp-page="/Forms/Update" asp-route-id="@item.Id" class="button">Edytuj</a>
+                           <button type="submit" asp-page-handler="Delete" asp-route-id="@item.Id" class="button">Usuń</button>
+                       }
+                    </td>
+                </tr>
+            }
+        </table>
+        <br />
+        <table width="100%">
+            @if (User.HasClaim("IsAdmin", "Yes"))
+            {
+                <tr height="50px" style="border: 1px dotted;">
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td style="text-align:right">
+                        <a asp-page="/Forms/Create" class="button">Utwórz nowy wpis</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <p>Brak Instrumentów</p>
+    }
+</form>
